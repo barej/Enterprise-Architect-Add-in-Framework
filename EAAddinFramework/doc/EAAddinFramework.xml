@@ -1031,6 +1031,11 @@
             </summary>
             <returns>empty set</returns>
         </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Element.openProperties">
+            <summary>
+            opens the (standard) properties dialog in EA
+            </summary>
+        </member>
         <member name="P:TSF.UmlToolingFramework.Wrappers.EA.Element.relationships">
             default implementation returns an empty list because there is only one
             subclass that can actually implement this operation: ElementWrapper.
@@ -1178,6 +1183,12 @@
             the isStatic property defines context of the attribute.
             If true then the context is the class
             If false then the context is the instance.
+        </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.TaggedValue.openProperties">
+            <summary>
+            opens the properties dialog in EA. 
+            For tagged values the properties dialog of the owner will be opened
+            </summary>
         </member>
         <member name="T:TSF.UmlToolingFramework.Wrappers.EA.BehaviorStateMachines.Event">
             <summary>
@@ -1486,6 +1497,11 @@
             Specification of the ordered set of argument values that appear during execution. 
             </summary>
         </member>
+        <member name="T:TSF.UmlToolingFramework.Wrappers.EA.CommunicationDiagram">
+            <summary>
+            Description of CommunicationDiagram.
+            </summary>
+        </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Diagram.getDiagramLinkForRelation(TSF.UmlToolingFramework.Wrappers.EA.ConnectorWrapper)">
             find the diagramlink object (if any) that represents the given 
             relation
@@ -1509,9 +1525,36 @@
             <param name="relativePath">list of names inlcuding the own name</param>
             <returns>the item matching the path</returns>
         </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Diagram.getCalledOperations">
+            <summary>
+            returns all operations called in this sequence diagram
+            </summary>
+            <returns>all operations called in this sequence diagram</returns>
+        </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Diagram.openProperties">
+            <summary>
+            opens the (standard) properties dialog in EA
+            </summary>
+        </member>
         <member name="P:TSF.UmlToolingFramework.Wrappers.EA.Diagram.diagramElements">
             all elements shown on this diagram.
             Currently only diagramObjectWrappers and relations
+        </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.CommunicationDiagram.getRelations">
+            <summary>
+            gets all relations that are specific to this sequence diagram.
+            </summary>
+            <returns>all messages and other relations of the diagram</returns>
+        </member>
+        <member name="T:TSF.UmlToolingFramework.Wrappers.EA.DataType">
+            <summary>
+            Description of DataType.
+            </summary>
+        </member>
+        <member name="T:TSF.UmlToolingFramework.Wrappers.EA.Enumeration">
+            <summary>
+            Description of Enumeration.
+            </summary>
         </member>
         <member name="T:TSF.UmlToolingFramework.Wrappers.EA.DiagramLinkWrapper">
             A diagramElement that wraps the EA.DiagramLink class.
@@ -1531,6 +1574,13 @@
         </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.getInstance">
             returns the singleton instance for a new model
+        </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createDiagram(System.Object)">
+            <summary>
+            creates a diagram based on the given EA.Diagram object
+            </summary>
+            <param name="diagramToWrap">the EA.Diagram object to wrap</param>
+            <returns>a diagram wrapping the given EA.Diagram object</returns>
         </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createElement(System.Object)">
             creates a new UML element based on the given object to wrap
@@ -1560,9 +1610,17 @@
             returns a new stereotype based on the given name and attached to the 
             given element
         </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createStereotype(TSF.UmlToolingFramework.UML.Diagrams.Diagram,System.String)">
+            returns a new stereotype based on the given name and attached to the 
+            given diagram
+        </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createStereotypes(TSF.UmlToolingFramework.UML.Classes.Kernel.Element,System.String)">
             creates a set of stereotypes based on the comma seperated names string
             and attaches it to the given element
+        </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createStereotypes(TSF.UmlToolingFramework.UML.Diagrams.Diagram,System.String)">
+            creates a set of stereotypes based on the comma separated names string
+            and attaches it to the given Diagram
         </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Factory.createNewElement``1(TSF.UmlToolingFramework.UML.Classes.Kernel.Element,System.String)">
             create a new element as owned element of the given owner
@@ -1635,6 +1693,17 @@
             generic query operation on the model.
             Returns results in an xml format
         </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Model.openProperties(TSF.UmlToolingFramework.UML.UMLItem)">
+            <summary>
+            opens the properties dialog for this item
+            </summary>
+            <param name="item">the item to open the properties dialog for</param>
+        </member>
+        <member name="P:TSF.UmlToolingFramework.Wrappers.EA.Model.mainEAWindow">
+            <summary>
+            the main EA window to use when opening properties dialogs
+            </summary>
+        </member>
         <member name="P:TSF.UmlToolingFramework.Wrappers.EA.Model.selectedElement">
             the Element currently selected in EA
         </member>
@@ -1704,6 +1773,12 @@
             
             </summary>
         </member>
+        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.Parameter.openProperties">
+            <summary>
+            opens the (standard) properties dialog in EA
+            For parameters the properties of the owner (operation) will be opened
+            </summary>
+        </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.ParameterWrapper.saveElement">
             saves the parameter to the case tool.
         </member>
@@ -1723,12 +1798,6 @@
             Description of SequenceDiagram.
             </summary>
         </member>
-        <member name="M:TSF.UmlToolingFramework.Wrappers.EA.SequenceDiagram.getCalledOperations">
-            <summary>
-            returns all operations called in this sequence diagram
-            </summary>
-            <returns>all operations called in this sequence diagram</returns>
-        </member>
         <member name="M:TSF.UmlToolingFramework.Wrappers.EA.SequenceDiagram.getRelations">
             <summary>
             gets all relations that are specific to this sequence diagram.
@@ -1747,11 +1816,49 @@
             If the proper translation cannot be found the defaultVisibility will 
             be returned
         </member>
+<<<<<<< HEAD
+        <member name="T:TSF.UmlToolingFramework.Wrappers.EA.WindowWrapper">
+            <summary>
+            Wrapper needed to be able to open properties dialog in EA
+            </summary>
+        </member>
+        <member name="T:EAAddinFramework.Utilities.AbortableBackgroundWorker">
+            <summary>
+            Description of AbortableBackgroundWorker.
+            borrowed from http://stackoverflow.com/questions/800767/how-to-kill-background-worker-completely 
+            </summary>
+        </member>
+        <member name="M:EAAddinFramework.Utilities.Logger.setLogFileName(System.String)">
+            <summary>
+            set the log file name
+            </summary>
+            <param name="fileName">the name of the log file</param>
+        </member>
+        <member name="M:EAAddinFramework.Utilities.Logger.log(System.String)">
+            <summary>
+            log a message
+            </summary>
+            <param name="logmessage">the message to be logged</param>
+        </member>
+        <member name="M:EAAddinFramework.Utilities.Logger.logError(System.String)">
+            <summary>
+            log an error
+            </summary>
+            <param name="logmessage">the error message</param>
+        </member>
+        <member name="M:EAAddinFramework.Utilities.Logger.logWarning(System.String)">
+            <summary>
+            log a warning
+            </summary>
+            <param name="logmessage">the warning message</param>
+        </member>
+=======
         <member name="T:EAAddinFramework.Utilities.EventPropertiesHelper">
             <summary>
             Description of EventPropertiesHelper.
             </summary>
         </member>
+>>>>>>> Fixed some minor stuff in EAWrappers. Added AddIn default TaggedValue boadcast handlers. Added EventPropertiesHelper class.
         <member name="T:EAAddinFramework.Utilities.ConnectorType">
             <summary>
             The connector types available for Enterprise Architect transformation IL.
